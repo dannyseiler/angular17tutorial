@@ -1,0 +1,20 @@
+<section>
+  <h1>Hello {{ username }}, you are a {{ occupation }}</h1>
+  @if (DoesUserExists) {
+  <p>Congratulations! You Do Exist n.n</p>
+  } @else{
+  <p>We're sorry, but we have doubds about your existense</p>
+  }
+
+  <h2>Pasa el mouse sobre estos SO y mira la consola</h2>
+  <ul>
+    @for (os of OperatingSystem; track os.id) {
+    <li (mouseover)="onMouseOver(os.name)">{{ os.name | uppercase }}</li>
+    }
+  </ul>
+
+  <div class="editable-div" [contentEditable]="isEditable"></div>
+  <p>Revela el mensaje en consola al presionar este botón</p>
+  <button (click)="botonSaludar()">Saluda</button>
+  <button (click)="emitToParent()">Message to Parent!</button>
+</section>
